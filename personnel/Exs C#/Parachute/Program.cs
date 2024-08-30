@@ -7,15 +7,16 @@ class Program
         Console.SetCursorPosition(1,15);
         Console.ForegroundColor = ConsoleColor.Blue;   
         Console.WriteLine("_@_ö");
-        int vies = 1000;
-        for (int i = 0; i < 1000; i++)
+        int vie = 50;
+        Console.CursorVisible = false;
+        for (int i = 0; i < 50; i++)
         {
             Console.Clear();
             Console.SetCursorPosition(i, 15);
             Console.WriteLine("_@_ö");
-            vies -= 1;
+            vie -= 1;
             Thread.Sleep(125);
-            if (vies == 0)
+            if (vie == 0)
             {
                 Console.Clear();
                 Console.SetCursorPosition(i, 15);
@@ -23,5 +24,6 @@ class Program
             }
         }
         Console.ResetColor();
+        Console.ReadKey();
     }
 }
