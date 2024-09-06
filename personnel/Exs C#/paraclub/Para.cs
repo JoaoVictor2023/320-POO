@@ -11,7 +11,7 @@ namespace Parachutes
         // View attributes
         private const int PARA_HEIGHT = 6;
 
-        private string[] viewNoParachute =
+        private string[] _viewNoParachute =
         {
             @"     ",
             @"     ",
@@ -20,7 +20,7 @@ namespace Parachutes
             @" /░\ ",
             @" / \ ",
         };
-        private string[] viewWithParachute =
+        private string[] _viewWithParachute =
         {
             @" ___ ",
             @"/|||\",
@@ -32,10 +32,10 @@ namespace Parachutes
 
         // Model attributes
 
-        public string name;
-        public int x;
-        public int altitude;
-        public bool parachuteIsOpen;
+        private string _name;
+        private int _x;
+        private int _altitude;
+        private bool _parachuteIsOpen;
 
         /// <summary>
         /// Constructor
@@ -43,7 +43,7 @@ namespace Parachutes
         /// <param name="name"></param>
         public Para(string name)
         {
-            this.name = name;
+            this._name = name;
         }
 
         /// <summary>
@@ -51,38 +51,38 @@ namespace Parachutes
         /// </summary>
         internal void update()
         {
-            if (altitude > PARA_HEIGHT) // il est en l'air
+            if (_altitude > PARA_HEIGHT) // il est en l'air
             {
-                if (parachuteIsOpen)
+                if (_parachuteIsOpen)
                 {
-                    altitude -= 1; // il tombe lentement
+                    _altitude -= 1; // il tombe lentement
                 }
                 else
                 {
-                    altitude -= 3; // il tombe vite
+                    _altitude -= 3; // il tombe vite
                 }
                 // Décision d'ouvrir le parachute
-                if (altitude < Config.SCREEN_HEIGHT / 2)
+                if (_altitude < Config.SCREEN_HEIGHT / 2)
                 {
-                    parachuteIsOpen = true;
+                    _parachuteIsOpen = true;
                 }
             }
             else // il est au sol
             {
-                parachuteIsOpen = false;
+                _parachuteIsOpen = false;
             }
         }
 
         public void draw()
         {
-            string[] view = parachuteIsOpen ? viewWithParachute : viewNoParachute;
+            string[] view = _parachuteIsOpen ? _viewWithParachute : _viewNoParachute;
             for (int i = 0; i < view.Length; i++)
             {
-                Console.SetCursorPosition(x, Config.SCREEN_HEIGHT - this.altitude + i);
+                Console.SetCursorPosition(_x, Config.SCREEN_HEIGHT - this._altitude + i);
                 Console.Write(view[i]);
             }
-            Console.SetCursorPosition(x, Config.SCREEN_HEIGHT - this.altitude -1);
-            Console.Write(this.name);
+            Console.SetCursorPosition(_x, Config.SCREEN_HEIGHT - this._altitude - 1);
+            Console.Write(this._name);
         }
 
     }
