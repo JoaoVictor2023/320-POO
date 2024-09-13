@@ -6,17 +6,16 @@ namespace Drones
 
     public partial class AirSpace : Form
     {
-        public static readonly int WIDTH = 1200;        // Dimensions of the airspace
-        public static readonly int HEIGHT = 600;
 
         // La flotte est l'ensemble des drones qui évoluent dans notre espace aérien
         private List<Drone> fleet;
+        private List<Building> fleetB;
 
         BufferedGraphicsContext currentContext;
         BufferedGraphics airspace;
 
         // Initialisation de l'espace aérien avec un certain nombre de drones
-        public AirSpace(List<Drone> fleet)
+        public AirSpace(List<Drone> fleet, List<Building> fleetB)
         {
             InitializeComponent();
             // Gets a reference to the current BufferedGraphicsContext
@@ -25,6 +24,7 @@ namespace Drones
             // dimensions the same size as the drawing surface of the form.
             airspace = currentContext.Allocate(this.CreateGraphics(), this.DisplayRectangle);
             this.fleet = fleet;
+            this.fleetB = fleetB;
         }
 
         // Affichage de la situation actuelle
@@ -36,6 +36,10 @@ namespace Drones
             foreach (Drone drone in fleet)
             {
                 drone.Render(airspace);
+            }
+            foreach (Building building in fleetB)
+            {
+                building.buildingRender(airspace);
             }
 
             airspace.Render();
