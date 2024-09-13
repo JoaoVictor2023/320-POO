@@ -14,7 +14,7 @@ namespace Drones
         {
             using (Pen buildingBrush = new Pen(new SolidBrush(BuildingColor), 3))
             {
-                drawingSpace.Graphics.DrawRectangle(buildingBrush, new Rectangle(X - 100, Y - 50, 20, 20));
+                drawingSpace.Graphics.DrawRectangle(buildingBrush, new Rectangle(X - 100, Y - 50, 10, 15));
             }
         }
     }
