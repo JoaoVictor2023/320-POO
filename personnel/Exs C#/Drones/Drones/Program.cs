@@ -19,9 +19,11 @@ namespace Drones
             Drone drone = new Drone();
             drone.X = Helper.alea.Next(0, Config.WIDTH);
             drone.Y = Helper.alea.Next(0, Config.HEIGHT);
-            drone.Name = "Joe";
+            drone.Name = "Bob";
             fleet.Add(drone);
+
             
+
             // Création des buildings
             List<Building> fleetB = new List<Building>();
             for (int i = 0; i <= 5; i++)

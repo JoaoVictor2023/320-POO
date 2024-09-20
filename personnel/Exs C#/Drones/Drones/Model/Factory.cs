@@ -5,5 +5,11 @@
     {
         private int _charge = 1000;
 
+        public int Charge { get => _charge; set => _charge = value; }
+
+        public void Update(int interval)
+        {
+            Charge--;                                  // Il a dépensé de l'énergie
+        }
     }
 }
