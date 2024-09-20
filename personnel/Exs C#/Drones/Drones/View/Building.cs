@@ -10,7 +10,7 @@ namespace Drones
         public Color BuildingColor { get; set; } = Color.Black;
 
         // Méthode pour rendre graphiquement le bâtiment
-        public void buildingRender(BufferedGraphics drawingSpace)
+        public void BuildingRender(BufferedGraphics drawingSpace)
         {
             using (Pen buildingBrush = new Pen(new SolidBrush(BuildingColor), 3))
             {

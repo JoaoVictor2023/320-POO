@@ -4,9 +4,9 @@ namespace Drones
 {
     // Cette partie de la classe Drone définit comment on peut voir un drone
 
-    public partial class Factory
+    public partial class Factory : Building
     {
-        private Pen FactoryBrush = new Pen(new SolidBrush(Color.Purple), 3);
+        private Pen FactoryBrush = new Pen(new SolidBrush(Color.Purple), 2);
 
         // De manière graphique
         public void FactoryRender(BufferedGraphics drawingSpace)

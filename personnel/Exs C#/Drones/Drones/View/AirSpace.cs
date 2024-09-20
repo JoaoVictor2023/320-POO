@@ -11,12 +11,13 @@ namespace Drones
         private List<Drone> fleet;
         private List<Building> fleetB;
         private List<Factory> fleetF;
+        private List<Store> fleetS;
 
         BufferedGraphicsContext currentContext;
         BufferedGraphics airspace;
 
         // Initialisation de l'espace aérien avec un certain nombre de drones
-        public AirSpace(List<Drone> fleet, List<Building> fleetB, List<Factory> fleetF)
+        public AirSpace(List<Drone> fleet, List<Building> fleetB, List<Factory> fleetF, List<Store> fleetS)
         {
             InitializeComponent();
             // Gets a reference to the current BufferedGraphicsContext
@@ -27,6 +28,7 @@ namespace Drones
             this.fleet = fleet;
             this.fleetB = fleetB;
             this.fleetF = fleetF;
+            this.fleetS = fleetS;
         }
 
         // Affichage de la situation actuelle
@@ -39,13 +41,20 @@ namespace Drones
             {
                 drone.Render(airspace);
             }
+            // draw building
             foreach (Building building in fleetB)
             {
-                building.buildingRender(airspace);
+                building.BuildingRender(airspace);
             }
+            // draw factory
             foreach (Factory factory in fleetF)
             {
                 factory.FactoryRender(airspace);
+            }
+            // draw store
+            foreach (Store store in fleetS)
+            {
+                store.StoreRender(airspace);
             }
 
             airspace.Render();

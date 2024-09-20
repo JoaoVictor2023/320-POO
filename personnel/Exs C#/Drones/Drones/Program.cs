@@ -24,11 +24,11 @@ namespace Drones
             
             // Création des buildings
             List<Building> fleetB = new List<Building>();
-            for (int i = 0; i <= 25; i++)
+            for (int i = 0; i <= 5; i++)
             {
                 Building building = new Building();
-                building.X = Helper.alea.Next(0, Config.WIDTH);
-                building.Y = Helper.alea.Next(0, Config.HEIGHT);
+                building.X = Helper.alea.Next(0, Config.WIDTH - 100);
+                building.Y = Helper.alea.Next(0, Config.HEIGHT - 50);
                 building.BuildingColor = Color.Red;
                 fleetB.Add(building);
             }
@@ -43,8 +43,18 @@ namespace Drones
                 fleetF.Add(factory);
             }
 
+            // Création des Stores
+            List<Store> fleetS = new List<Store>();
+            for (int i = 0; i <= 5; i++)
+            {
+                Store store = new Store();
+                store.X = Helper.alea.Next(100, Config.WIDTH - 100);
+                store.Y = Helper.alea.Next(50, Config.HEIGHT - 50);
+                fleetS.Add(store);
+            }
+
             // Démarrage
-            Application.Run(new AirSpace(fleet, fleetB, fleetF));
+            Application.Run(new AirSpace(fleet, fleetB, fleetF, fleetS));
         }
     }
 }
