@@ -19,7 +19,7 @@ namespace Drones
             // Création de la flotte de drones
             for (int i = 0; i <= 1; i++)
             {
-                Drone drone = new Drone();
+                Drone drone = new Drone(0, 0);
                 drone.X = Helper.alea.Next(0, Config.WIDTH - 100);
                 drone.Y = Helper.alea.Next(0, Config.HEIGHT - 50);
                 drone.Name = "Bob" + i;
