@@ -17,6 +17,7 @@ namespace Drones
         BufferedGraphics airspace;
 
         // Initialisation de l'espace aérien avec un certain nombre de drones
+        // Initialisation de l'espace aérien avec un certain nombre de drones
         public AirSpace(List<Drone> fleet, List<Building> fleetB, List<Factory> fleetF, List<Store> fleetS)
         {
             InitializeComponent();
@@ -25,15 +26,24 @@ namespace Drones
             // Creates a BufferedGraphics instance associated with this form, and with
             // dimensions the same size as the drawing surface of the form.
             airspace = currentContext.Allocate(this.CreateGraphics(), this.DisplayRectangle);
+
+            // Vérifie si la liste de drones contient plus de 10 drones
+            if (fleet.Count > 10)
+            {
+                throw new Exception("La flotte ne peut pas contenir plus de 10 drones.");
+            }
+
             this.fleet = fleet;
             this.fleetB = fleetB;
             this.fleetF = fleetF;
             this.fleetS = fleetS;
+
         }
 
         // Affichage de la situation actuelle
         private void Render()
         {
+
             airspace.Graphics.Clear(Color.AliceBlue);
 
             // draw drones
