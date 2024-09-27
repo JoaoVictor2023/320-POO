@@ -17,7 +17,7 @@ namespace Drones
 
             List<Drone> fleet = new List<Drone>();
             // Création de la flotte de drones
-            for (int i = 0; i <= 15; i++)
+            for (int i = 0; i <= 1; i++)
             {
                 Drone drone = new Drone();
                 drone.X = Helper.alea.Next(0, Config.WIDTH - 100);
