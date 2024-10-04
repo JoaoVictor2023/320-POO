@@ -9,16 +9,16 @@
         private EvacuationState _evacuationState = EvacuationState.Free;
         private Rectangle _noFlyZone;
 
-        public Drone(int x, int y)
-        {
-            _x = x;
-            _y = y;
-        }
 
         public int Charge { get => _charge; set => _charge = value; }
         public string Name { get => _name; set => _name = value; }
         public int X { get => _x; set => _x = value; }
         public int Y { get => _y; set => _y = value; }
+        public Drone(int x, int y)
+        {
+            _x = x;
+            _y = y;
+        }
 
         public EvacuationState GetEvacuationState()
         {
@@ -28,9 +28,8 @@
         public bool Evacuate(Rectangle zone)
         {
             _noFlyZone = zone;
-            Rectangle droneBounds = new Rectangle(_x, _y, 1, 1); // Représente la position du drone
 
-            if (droneBounds.IntersectsWith(zone))
+            if (zone.IntersectsWith(new Rectangle(X -4, Y - 2, 8, 8)))
             {
                 _evacuationState = EvacuationState.Evacuating;
                 return false;

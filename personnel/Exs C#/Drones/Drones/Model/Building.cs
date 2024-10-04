@@ -11,9 +11,6 @@
         public int X { get => _x; set => _x = value; }
         public int Y { get => y; set => y = value; }
 
-
-        // Cette méthode calcule le nouvel état dans lequel le drone se trouve après
-        // que 'interval' millisecondes se sont écoulées
        
     }
 }
